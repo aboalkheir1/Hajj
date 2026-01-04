@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز برنامج العمرة - فضيلة الشيخ عادل عزام</title>
+    <!-- Google Fonts: Rubik -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a4731', // Deep Islamic Green
+                        secondary: '#c5a059', // Gold
+                        accent: '#f9f6f0', // Creamy White
+                    },
+                    fontFamily: {
+                        rubik: ['Rubik', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+            font-weight: 300;
+            background-color: #ffffff;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(26, 71, 49, 0.85), rgba(26, 71, 49, 0.85)), url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        /* Modal Styles */
+        #detailsModal {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        #detailsModal.active .modal-content {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header / Nav -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-primary text-2xl font-bold">عمرة <span class="text-secondary">النور</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="flex space-x-reverse space-x-8">
+                        <a href="#home" class="text-primary hover:text-secondary font-medium">الرئيسية</a>
+                        <a href="#programs" class="text-gray-600 hover:text-primary font-medium">البرامج</a>
+                        <a href="#sheikh" class="text-gray-600 hover:text-primary font-medium">المرافق الديني</a>
+                        <a href="#contact" class="bg-secondary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition">احجز الآن</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient text-white py-24 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">احجز معنا برنامج العمرة لعام 1446هـ</h1>
+            <p class="text-xl md:text-2xl mb-10 font-light opacity-90">رحلة إيمانية خاشعة بصحبة فضيلة الشيخ عادل عزام</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#programs" class="bg-secondary text-white px-10 py-4 rounded-lg text-lg font-medium hover:bg-yellow-600 transition shadow-lg">استكشف البرامج</a>
+                <a href="https://wa.me/201061415674" class="bg-white text-primary px-10 py-4 rounded-lg text-lg font-medium hover:bg-gray-100 transition shadow-lg">تواصل واتساب</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Grid -->
+    <section id="programs" class="py-20 bg-accent">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">برامجنا المتنوعة</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Program 1 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                    <div class="h-48 bg-primary flex items-center justify-center text-white p-6 text-center">
+                        <h3 class="text-2xl font-bold">عمرة الإسراء والمعراج وغسيل الكعبة</h3>
+                    </div>
+                    <div class="p-6">
+                        <button onclick="openModal('عمرة الإسراء والمعراج وغسيل الكعبة')" class="w-full border-2 border-primary text-primary py-2 rounded-lg hover:bg-primary hover:text-white transition font-medium">تفاصيل الرحلة</button>
+                    </div>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover border-t-4 border-secondary">
+                    <div class="h-48 bg-gray-100 flex items-center justify-center text-primary p-6 text-center relative">
+                         <img src="https://images.unsplash.com/photo-1564769662533-4f00a87b4056?auto=format&fit=crop&w=400&q=80" class="absolute inset-0 w-full h-full object-cover opacity-20" alt="Kaaba">
+                        <h3 class="text-2xl font-bold relative z-10">عمرة نصف العام و رجب</h3>
+                    </div>
+                    <div class="p-6">
+                        <button onclick="openModal('عمرة نصف العام وعمرة رجب')" class="w-full border-2 border-primary text-primary py-2 rounded-lg hover:bg-primary hover:text-white transition font-medium">تفاصيل الرحلة</button>
+                    </div>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                    <div class="h-48 bg-primary flex items-center justify-center text-white p-6 text-center">
+                        <h3 class="text-2xl font-bold">عمرة شعبان وعمرة رمضان</h3>
+                    </div>
+                    <div class="p-6">
+                        <button onclick="openModal('عمرة شعبان وعمرة رمضان')" class="w-full border-2 border-primary text-primary py-2 rounded-lg hover:bg-primary hover:text-white transition font-medium">تفاصيل الرحلة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sheikh Section -->
+    <section id="sheikh" class="py-20 bg-primary text-white">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-12">المرافق الديني للرحلة</h2>
+            <div class="bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-3xl inline-block w-full">
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 border-4 border-secondary rounded-full overflow-hidden shadow-2xl">
+                        <img src="https://i.postimg.cc/C5NyqKD3/13971.jpg" alt="فضيلة الشيخ عادل عزام" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-right flex-grow">
+                        <h3 class="text-3xl font-bold text-secondary mb-2">الشيخ / عادل عزام</h3>
+                        <p class="text-xl mb-6 font-light">إمام وخطيب بوزارة الأوقاف المصرية</p>
+                        <p class="text-lg leading-relaxed opacity-90 font-light">
+                            يصحبكم فضيلة الشيخ لتقديم الإرشاد الديني، الدروس الإيمانية، والإجابة على كافة الاستفسارات لضمان أداء العمرة على هدي السنة النبوية.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Modal -->
+    <div id="detailsModal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 opacity-0 pointer-events-none px-4">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl relative">
+            <!-- Modal Header -->
+            <div class="bg-primary p-6 text-white relative">
+                <button onclick="closeModal()" class="absolute top-6 left-6 text-white/70 hover:text-white">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+                <h3 id="modalTitle" class="text-2xl font-bold text-center">تفاصيل الرحلة</h3>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-8">
+                <div class="space-y-6">
+                    <div class="flex items-center p-4 bg-accent rounded-xl border-r-4 border-secondary">
+                        <div class="ml-4 text-secondary">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+                        </div>
+                        <p class="text-lg font-medium text-primary">فنادق قريبة جداً من الحرم المكي والنبوي</p>
+                    </div>
+
+                    <div class="flex items-center p-4 bg-accent rounded-xl border-r-4 border-secondary">
+                        <div class="ml-4 text-secondary">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
+                        </div>
+                        <p class="text-lg font-medium text-primary">إشراف ديني وإداري متكامل وعلى أعلى مستوى</p>
+                    </div>
+
+                    <div class="flex items-center p-4 bg-accent rounded-xl border-r-4 border-secondary">
+                        <div class="ml-4 text-secondary">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
+                        </div>
+                        <p class="text-lg font-medium text-primary">خدماتنا متميزة وعلى أعلى مستوى من الاهتمام</p>
+                    </div>
+
+                    <div class="flex items-center p-4 bg-accent rounded-xl border-r-4 border-secondary">
+                        <div class="ml-4 text-secondary">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
+                        </div>
+                        <p class="text-xl font-bold text-red-600">أسعارنا لا تقبل المنافسة</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex flex-col gap-4">
+                    <a href="https://wa.me/201061415674" class="w-full bg-green-500 text-white text-center py-4 rounded-xl font-bold text-xl hover:bg-green-600 transition shadow-lg">احجز عبر واتساب الآن</a>
+                    <button onclick="closeModal()" class="w-full text-gray-500 font-medium py-2 hover:text-primary transition">إغلاق النافذة</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white text-center px-4">
+        <h2 class="text-3xl font-bold text-primary mb-8">للتواصل والاستفسار</h2>
+        <div class="max-w-xl mx-auto bg-accent p-8 rounded-3xl border border-gray-100 shadow-sm">
+            <p class="text-gray-600 mb-2">رقم الواتساب الرسمي</p>
+            <a href="https://wa.me/201061415674" class="text-3xl font-bold text-primary dir-ltr block mb-6">+20 106 141 5674</a>
+            <p class="text-secondary font-medium">بصحبة فضيلة الشيخ / عادل عزام</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-10 px-4 text-center">
+        <p class="text-sm">© 2025 جميع الحقوق محفوظة - برنامج عمرة النور</p>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/201061415674" class="whatsapp-float bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all transform hover:scale-110">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <script>
+        const modal = document.getElementById('detailsModal');
+        const modalTitle = document.getElementById('modalTitle');
+
+        function openModal(title) {
+            modalTitle.innerText = 'تفاصيل: ' + title;
+            modal.classList.add('active');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'auto'; // Re-enable scroll
+        }
+
+        // Close on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    </script>
+
+</body>
+</html>
+
