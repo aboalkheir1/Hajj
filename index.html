@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>برامج العمرة 1446هـ - الشيخ عادل عزام</title>
+    <title>برنامج عمرة 1446هـ - الشيخ عادل عزام</title>
     <!-- Google Fonts: Rubik -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,8 +19,7 @@
                             dark: '#0f172a',    
                             gold: '#a37e2c',    
                             green: '#064e3b',   
-                            surface: '#f8fafc',
-                            blue: '#1e40af'
+                            surface: '#f8fafc'  
                         }
                     },
                     fontFamily: {
@@ -36,34 +35,23 @@
             font-weight: 300;
             background-color: #fff;
             color: #1e293b;
+            scroll-behavior: smooth;
         }
         .hero-clip {
             clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
         }
+        .img-mask {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 40%;
+        }
         .program-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .program-card:hover {
-            transform: translateY(-12px);
-        }
-        .img-mask {
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            overflow: hidden;
+            transform: translateY(-10px);
         }
         .modal-overlay {
             background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(6px);
-        }
-        .season-badge {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 10;
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
+            backdrop-filter: blur(8px);
         }
         @media (max-width: 768px) {
             .hero-clip { clip-path: none; }
@@ -73,243 +61,170 @@
 <body class="antialiased overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 bg-gradient-to-br from-brand-green to-brand-blue rounded flex items-center justify-center text-white font-bold">ع</div>
-                    <span class="text-xl font-bold text-brand-dark tracking-tight">برامج العمرة <span class="text-brand-gold font-light">1446</span></span>
+                    <div class="w-8 h-8 bg-brand-green rounded flex items-center justify-center text-white font-bold">ع</div>
+                    <span class="text-xl font-bold text-brand-dark tracking-tight">عمرة <span class="text-brand-gold font-light">1446</span></span>
                 </div>
                 <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
-                    <a href="#programs" class="hover:text-brand-green transition duration-300">البرامج المتاحة</a>
-                    <a href="#features" class="hover:text-brand-green transition duration-300">المميزات</a>
-                    <a href="#sheikh" class="hover:text-brand-green transition duration-300">المرافق الديني</a>
+                    <a href="#programs" class="hover:text-brand-green transition">البرامج</a>
+                    <a href="#features" class="hover:text-brand-green transition">المعايير اللوجستية</a>
+                    <a href="#sheikh" class="hover:text-brand-green transition">المرافق الديني</a>
                 </div>
-                <a href="https://wa.me/201061415674" class="bg-gradient-to-r from-brand-green to-brand-blue text-white px-5 py-2.5 rounded-xl text-sm font-medium hover:opacity-90 transition duration-300 shadow-md">احجز مقعدك</a>
+                <a href="https://wa.me/201061415674" class="bg-brand-green text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-opacity-90 transition">احجز مقعدك</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 md:pt-44 md:pb-36 bg-gradient-to-br from-slate-50 to-blue-50 hero-clip">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto">
-                <span class="inline-block bg-gradient-to-r from-brand-gold/20 to-brand-green/20 text-brand-green px-5 py-2 rounded-full text-xs font-bold mb-6 tracking-widest uppercase border border-brand-gold/30">موسم العمرة 1446هـ</span>
-                <h1 class="text-4xl md:text-6xl font-bold text-brand-dark leading-tight mb-8">برامج عمرة مميزة <br><span class="text-brand-green font-light">بصحبة الشيخ عادل عزام</span></h1>
-                <p class="text-lg text-slate-600 font-light mb-10 max-w-2xl mx-auto leading-relaxed">نقدم ثلاث رحلات عمرة مدروسة بعناية، تجمع بين القرب من الحرم المكي الشريف والتنظيم الإداري المتكامل والمرافقة الدينية المباشرة.</p>
-                <a href="#programs" class="inline-flex items-center gap-3 bg-brand-dark text-white px-8 py-4 rounded-xl font-medium shadow-2xl shadow-slate-300 hover:bg-slate-800 transition duration-300">
-                    استعرض البرامج المتاحة
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                </a>
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-40 bg-slate-50 hero-clip">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 text-right">
+                <span class="inline-block bg-brand-gold/10 text-brand-gold px-4 py-1 rounded-full text-xs font-bold mb-6 tracking-widest uppercase">موسم العمرة 1446هـ</span>
+                <h1 class="text-4xl md:text-6xl font-bold text-brand-dark leading-tight mb-6">تنظيم متكامل لرحلات <span class="text-brand-green font-light">العمرة والزيارة</span></h1>
+                <p class="text-lg text-slate-600 font-light mb-10 max-w-xl leading-relaxed">بإشراف مباشر من فضيلة الشيخ عادل عزام، نقدم برامج مدروسة تجمع بين القرب من الحرم المكي والانضباط الإداري الكامل.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#programs" class="bg-brand-dark text-white px-8 py-4 rounded-xl font-medium shadow-2xl shadow-slate-200 hover:bg-slate-800 transition">استعراض جداول الرحلات</a>
+                    <a href="https://wa.me/201061415674" class="bg-white border border-slate-200 text-slate-700 px-8 py-4 rounded-xl font-medium hover:bg-slate-50 transition flex items-center gap-2">
+                        استفسار مباشر
+                    </a>
+                </div>
+            </div>
+            <div class="flex-1 relative">
+                <div class="relative w-full max-w-md mx-auto aspect-square bg-brand-gold/20 img-mask overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&q=80" alt="الحرم المكي" class="w-full h-full object-cover">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Programs Section -->
+    <!-- Programs Grid (Updated with Full Images) -->
     <section id="programs" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">البرامج الزمنية المتاحة</h2>
-                <p class="text-slate-500 font-light max-w-2xl mx-auto">تم تصميم برامج العمرة لتتناسب مع المواسم والذكرى والمناسبات الرسمية لعام 1446هـ مع مراعاة الراحة الروحية والمعيشية</p>
+            <div class="mb-16 text-right">
+                <h2 class="text-3xl font-bold text-brand-dark mb-4">البرامج الزمنية المتاحة</h2>
+                <p class="text-slate-500 font-light">تم توزيع الرحلات لتشمل أهم المواسم لعام 1446هـ</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
                 <!-- Program 1: Half Year -->
-                <div class="program-card group bg-gradient-to-b from-white to-slate-50 p-0 rounded-3xl border border-slate-100 hover:border-brand-gold/40 hover:shadow-2xl overflow-hidden">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://i.postimg.cc/x8SRVGLh/1767711465306_2.jpg" alt="عمرة نصف العام" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="season-badge bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg">نصف العام الدراسي</div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div class="program-card bg-slate-50 rounded-[2rem] overflow-hidden border border-slate-100 flex flex-col group">
+                    <div class="bg-white p-2 flex items-center justify-center overflow-hidden h-72">
+                        <img src="https://i.postimg.cc/x8SRVGLh/1767711465306_2.jpg" alt="عمرة نصف العام" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
                     </div>
-                    <div class="p-8 text-right">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                            </div>
-                            <span class="text-sm font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">موسم العائلات</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-dark mb-4 leading-snug">عمرة نصف العام</h3>
-                        <p class="text-slate-500 text-sm font-light mb-6 leading-relaxed">برنامج مخصص للعائلات خلال إجازة منتصف العام الدراسي، مع أنشطة تربوية للأطفال وتنظيم خاص للعوائل.</p>
-                        
-                        <div class="mb-8 space-y-3">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center text-green-600 flex-shrink-0">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                </div>
-                                <p class="text-sm text-slate-600">تنظيم خاص للعوائل والأطفال</p>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center text-green-600 flex-shrink-0">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                </div>
-                                <p class="text-sm text-slate-600">أنشطة تربوية وتعليمية</p>
-                            </div>
-                        </div>
-                        
-                        <div class="pt-6 border-t border-slate-100">
-                            <button onclick="openDetails('عمرة نصف العام')" class="w-full bg-gradient-to-r from-blue-50 to-white text-blue-700 px-6 py-4 rounded-xl font-bold hover:from-blue-100 hover:to-blue-50 transition duration-300 border border-blue-100">
-                                تفاصيل البرنامج &larr;
-                            </button>
-                        </div>
+                    <div class="p-8 flex-1 flex flex-col text-right">
+                        <h3 class="text-xl font-bold text-brand-dark mb-4">عمرة نصف العام الدراسي</h3>
+                        <p class="text-slate-500 text-sm font-light mb-8 leading-relaxed">برنامج منظم يشمل السكن القريب والخدمات الإدارية الكاملة طوال فترة الرحلة.</p>
+                        <button onclick="openDetails('عمرة نصف العام')" class="mt-auto w-full bg-brand-green text-white py-4 rounded-2xl font-bold hover:bg-brand-dark transition shadow-lg shadow-brand-green/10">التفاصيل والحجز</button>
                     </div>
                 </div>
 
                 <!-- Program 2: Shaban -->
-                <div class="program-card group bg-gradient-to-b from-white to-slate-50 p-0 rounded-3xl border border-slate-100 hover:border-brand-gold/40 hover:shadow-2xl overflow-hidden">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://i.postimg.cc/4yb1fK5b/1767711491922_2.jpg" alt="عمرة شعبان" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="season-badge bg-gradient-to-r from-purple-500 to-purple-700 text-white shadow-lg">شهر شعبان المبارك</div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div class="program-card bg-slate-50 rounded-[2rem] overflow-hidden border border-slate-100 flex flex-col group">
+                    <div class="bg-white p-2 flex items-center justify-center overflow-hidden h-72">
+                        <img src="https://i.postimg.cc/4yb1fK5b/1767711491922_2.jpg" alt="عمرة شعبان" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
                     </div>
-                    <div class="p-8 text-right">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-                            </div>
-                            <span class="text-sm font-bold text-purple-600 bg-purple-100 px-3 py-1 rounded-full">تمهيد لرمضان</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-dark mb-4 leading-snug">عمرة شعبان</h3>
-                        <p class="text-slate-500 text-sm font-light mb-6 leading-relaxed">برنامج تمهيدي لاستقبال شهر رمضان المبارك، مع دروس خاصة عن فضائل الاستعداد للشهر الكريم.</p>
-                        
-                        <div class="mb-8 space-y-3">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center text-green-600 flex-shrink-0">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                </div>
-                                <p class="text-sm text-slate-600">دروس تحضيرية لاستقبال رمضان</p>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center text-green-600 flex-shrink-0">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                </div>
-                                <p class="text-sm text-slate-600">تأهيل روحي ومعنوي</p>
-                            </div>
-                        </div>
-                        
-                        <div class="pt-6 border-t border-slate-100">
-                            <button onclick="openDetails('عمرة شعبان')" class="w-full bg-gradient-to-r from-purple-50 to-white text-purple-700 px-6 py-4 rounded-xl font-bold hover:from-purple-100 hover:to-purple-50 transition duration-300 border border-purple-100">
-                                تفاصيل البرنامج &larr;
-                            </button>
-                        </div>
+                    <div class="p-8 flex-1 flex flex-col text-right">
+                        <h3 class="text-xl font-bold text-brand-dark mb-4">عمرة شهر شعبان</h3>
+                        <p class="text-slate-500 text-sm font-light mb-8 leading-relaxed">رحلة تجمع بين السكينة والاستعداد الروحي التام في رحاب مكة والمدينة المنورة.</p>
+                        <button onclick="openDetails('عمرة شهر شعبان')" class="mt-auto w-full bg-brand-green text-white py-4 rounded-2xl font-bold hover:bg-brand-dark transition shadow-lg shadow-brand-green/10">التفاصيل والحجز</button>
                     </div>
                 </div>
 
                 <!-- Program 3: Ramadan -->
-                <div class="program-card group bg-gradient-to-b from-white to-slate-50 p-0 rounded-3xl border border-slate-100 hover:border-brand-gold/40 hover:shadow-2xl overflow-hidden">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://i.postimg.cc/RhQTS3Rq/1767711483095_2.jpg" alt="عمرة رمضان" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="season-badge bg-gradient-to-r from-amber-500 to-amber-700 text-white shadow-lg">شهر رمضان الكريم</div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div class="program-card bg-slate-50 rounded-[2rem] overflow-hidden border border-slate-100 flex flex-col group">
+                    <div class="bg-white p-2 flex items-center justify-center overflow-hidden h-72">
+                        <img src="https://i.postimg.cc/RhQTS3Rq/1767711483095_2.jpg" alt="عمرة رمضان" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
                     </div>
-                    <div class="p-8 text-right">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-                            </div>
-                            <span class="text-sm font-bold text-amber-600 bg-amber-100 px-3 py-1 rounded-full">أعظم الأجر</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-dark mb-4 leading-snug">عمرة رمضان</h3>
-                        <p class="text-slate-500 text-sm font-light mb-6 leading-relaxed">برنامج متكامل خلال الشهر الكريم، مع تنظيم خاص لصلاة التراويح والقيام والاعتكاف في الحرم المكي.</p>
-                        
-                        <div class="mb-8 space-y-3">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center text-green-600 flex-shrink-0">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                </div>
-                                <p class="text-sm text-slate-600">تنظيم صلاة التراويح والقيام</p>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center text-green-600 flex-shrink-0">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                </div>
-                                <p class="text-sm text-slate-600">برنامج اعتكاف متكامل</p>
-                            </div>
-                        </div>
-                        
-                        <div class="pt-6 border-t border-slate-100">
-                            <button onclick="openDetails('عمرة رمضان')" class="w-full bg-gradient-to-r from-amber-50 to-white text-amber-700 px-6 py-4 rounded-xl font-bold hover:from-amber-100 hover:to-amber-50 transition duration-300 border border-amber-100">
-                                تفاصيل البرنامج &larr;
-                            </button>
-                        </div>
+                    <div class="p-8 flex-1 flex flex-col text-right">
+                        <h3 class="text-xl font-bold text-brand-dark mb-4">عمرة شهر رمضان المبارك</h3>
+                        <p class="text-slate-500 text-sm font-light mb-8 leading-relaxed">أداء المناسك في أفضل الشهور ببرامج متنوعة تشمل كافة الخدمات الإدارية.</p>
+                        <button onclick="openDetails('عمرة شهر رمضان')" class="mt-auto w-full bg-brand-green text-white py-4 rounded-2xl font-bold hover:bg-brand-dark transition shadow-lg shadow-brand-green/10">التفاصيل والحجز</button>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-24 bg-gradient-to-b from-slate-50 to-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">مميزات جميع البرامج</h2>
-                <p class="text-slate-500 font-light max-w-2xl mx-auto">نحرص على تقديم مستوى متقن من الخدمات في جميع رحلات العمرة</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                    <div class="w-14 h-14 bg-gradient-to-br from-brand-green/10 to-brand-blue/10 rounded-2xl flex items-center justify-center text-brand-green mb-6">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    <!-- Logistics Section (Restored to Original Features) -->
+    <section id="features" class="py-24 bg-brand-dark text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="text-right">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">المعايير اللوجستية <br><span class="text-brand-gold font-light text-2xl">ضبط إداري وتنفيذ متقن</span></h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 flex-shrink-0 bg-white/10 rounded-full flex items-center justify-center text-brand-gold">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 tracking-tight">القرب من الحرم</h4>
+                                <p class="text-slate-400 font-light leading-relaxed">اختيار الفنادق يتم بناءً على القرب الفعلي من الساحات لتوفير الجهد والوقت على ضيوف الرحمن.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 flex-shrink-0 bg-white/10 rounded-full flex items-center justify-center text-brand-gold">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 tracking-tight">إشراف إداري متكامل</h4>
+                                <p class="text-slate-400 font-light leading-relaxed">تواجد فريق إداري مختص طوال الرحلة لضمان سير البرنامج اللوجستي دون عوائق.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h4 class="text-xl font-bold text-brand-dark mb-4">القرب من الحرم</h4>
-                    <p class="text-slate-600 font-light leading-relaxed">فنادق متميزة قريبة من الحرم المكي، مما يوفر الوقت والجهد على المعتمرين.</p>
                 </div>
-
-                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                    <div class="w-14 h-14 bg-gradient-to-br from-brand-green/10 to-brand-blue/10 rounded-2xl flex items-center justify-center text-brand-green mb-6">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                <!-- Support Card -->
+                <div class="flex justify-center">
+                    <div class="w-full max-w-sm bg-white/5 p-10 rounded-[3rem] border border-white/10 text-center backdrop-blur-sm">
+                        <div class="w-20 h-20 bg-brand-gold/20 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-gold">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <p class="text-4xl font-bold text-brand-gold mb-2">24/7</p>
+                        <p class="text-sm uppercase tracking-widest font-bold opacity-60">تنسيق وإشراف دائم</p>
+                        <p class="mt-4 text-slate-400 font-light text-sm">متابعة دقيقة لكافة احتياجات المعتمرين من لحظة الانطلاق حتى العودة.</p>
                     </div>
-                    <h4 class="text-xl font-bold text-brand-dark mb-4">إشراف ديني وإداري</h4>
-                    <p class="text-slate-600 font-light leading-relaxed">تواجد فريق متكامل للإشراف الديني والإداري طوال فترة الرحلة.</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                    <div class="w-14 h-14 bg-gradient-to-br from-brand-green/10 to-brand-blue/10 rounded-2xl flex items-center justify-center text-brand-green mb-6">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h4 class="text-xl font-bold text-brand-dark mb-4">دعم ومتابعة 24/7</h4>
-                    <p class="text-slate-600 font-light leading-relaxed">متابعة دائمة لكافة احتياجات المعتمرين من لحظة الانطلاق حتى العودة.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Sheikh Section -->
-    <section id="sheikh" class="py-24 bg-white overflow-hidden">
+    <section id="sheikh" class="py-24 bg-slate-50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2 text-right">
-                    <h2 class="text-4xl font-bold text-brand-dark mb-6 leading-snug">بصحبة فضيلة الشيخ <br><span class="text-brand-gold text-5xl">عادل عزام</span></h2>
-                    <h4 class="text-lg text-brand-green font-medium mb-8">إمام وخطيب بوزارة الأوقاف المصرية</h4>
-                    
-                    <div class="prose prose-slate font-light leading-loose text-slate-600 mb-10">
-                        <p>تعتمد برامجنا على مرافقة علمية ودينية مباشرة، حيث يتواجد فضيلة الشيخ عادل عزام مع المعتمرين لتقديم الشرح الفقهي الدقيق لمناسك العمرة، وإلقاء الدروس التربوية، والإجابة على الاستفسارات الشرعية بأسلوب واقعي ومبسط.</p>
-                        <p class="mt-4">يتم التركيز خلال الرحلة على تعميق الفهم للسنة النبوية، مع مراعاة كافة الظروف البدنية للمعتمرين لضمان أداء المناسك بيسر وطمأنينة.</p>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-4">
-                        <a href="https://wa.me/201061415674" class="bg-gradient-to-r from-brand-green to-brand-blue text-white px-8 py-4 rounded-xl font-medium shadow-lg hover:opacity-90 transition duration-300 flex items-center gap-3">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            استفسر عن البرامج
-                        </a>
-                    </div>
-                </div>
-
                 <!-- Images Montage -->
                 <div class="lg:w-1/2 grid grid-cols-2 gap-4 relative">
                     <div class="space-y-4">
                         <div class="rounded-3xl overflow-hidden shadow-xl aspect-[3/4] border-4 border-white">
                             <img src="https://i.postimg.cc/R05m6hDq/19006.jpg" alt="فضيلة الشيخ عادل عزام" class="w-full h-full object-cover">
                         </div>
-                        <div class="h-32 bg-gradient-to-r from-brand-green to-brand-blue rounded-3xl flex items-center justify-center p-6 text-white">
-                            <svg class="w-12 h-12 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                        </div>
                     </div>
                     <div class="pt-12 space-y-4">
-                        <div class="bg-gradient-to-r from-brand-gold to-amber-600 h-32 rounded-3xl flex items-end p-6">
-                            <span class="text-white text-xs font-bold uppercase tracking-widest">المرافق الديني للرحلة</span>
-                        </div>
                         <div class="rounded-3xl overflow-hidden shadow-xl aspect-[3/4] border-4 border-white">
                             <img src="https://i.postimg.cc/R07BcmkQ/19007.jpg" alt="الشيخ في الحرم" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bio Content -->
+                <div class="lg:w-1/2 text-right">
+                    <h2 class="text-4xl font-bold text-brand-dark mb-4 leading-snug tracking-tight">بصحبة فضيلة الشيخ <br><span class="text-brand-gold text-5xl">عادل عزام</span></h2>
+                    <h4 class="text-lg text-brand-green font-medium mb-8">إمام وخطيب بوزارة الأوقاف المصرية</h4>
+                    <div class="prose prose-slate font-light leading-loose text-slate-600 mb-10">
+                        <p>تعتمد برامجنا على مرافقة دينية مباشرة، حيث يتواجد فضيلة الشيخ عادل عزام مع المعتمرين لتقديم الشرح الفقهي لمناسك العمرة، وإلقاء الدروس التربوية، والإجابة على الاستفسارات الشرعية بأسلوب مبسط.</p>
+                        <p class="mt-4">يتم التركيز خلال الرحلة على تعميق الفهم للسنة النبوية، مع مراعاة كافة الظروف البدنية للمعتمرين لضمان أداء المناسك بيسر وطمأنينة.</p>
+                    </div>
+                    <div class="inline-flex items-center gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="w-10 h-10 bg-brand-green/10 rounded-full flex items-center justify-center text-brand-green">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-slate-400 font-bold uppercase">التواصل المباشر</p>
+                            <p class="text-lg font-bold text-brand-dark dir-ltr">+20 106 141 5674</p>
                         </div>
                     </div>
                 </div>
@@ -317,70 +232,47 @@
         </div>
     </section>
 
-    <!-- Detailed Modal -->
+    <!-- Modal -->
     <div id="detailsModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
         <div onclick="closeModal()" class="absolute inset-0 modal-overlay transition-opacity"></div>
-        <div class="bg-white w-full max-w-2xl rounded-[2.5rem] shadow-2xl relative z-10 overflow-hidden transform transition-all">
-            <div class="bg-gradient-to-r from-slate-50 to-white border-b border-slate-100 p-8 flex justify-between items-center text-right">
-                <div>
-                    <span class="text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-1 block">بيانات البرنامج</span>
-                    <h3 id="modalTitle" class="text-2xl font-bold text-brand-dark tracking-tight">تفاصيل الرحلة</h3>
-                </div>
+        <div class="bg-white w-full max-w-xl rounded-[2.5rem] shadow-2xl relative z-10 overflow-hidden text-right">
+            <div class="p-8 border-b border-slate-100 flex justify-between items-center">
+                <h3 id="modalTitle" class="text-xl font-bold text-brand-dark">تفاصيل البرنامج</h3>
                 <button onclick="closeModal()" class="p-2 hover:bg-slate-100 rounded-full transition text-slate-400">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>
             
-            <div class="p-8 text-right">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                    <div class="flex gap-4">
-                        <div class="text-brand-green flex-shrink-0">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        </div>
-                        <p class="text-slate-700 text-sm font-medium">تسكين فندقي في المنطقة المركزية القريبة من الحرم.</p>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="text-brand-green flex-shrink-0">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        </div>
-                        <p class="text-slate-700 text-sm font-medium">إشراف ديني وإداري متكامل طوال فترة الرحلة.</p>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="text-brand-green flex-shrink-0">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        </div>
-                        <p class="text-slate-700 text-sm font-medium">تنظيم مواعيد الزيارات والمزارات بدقة إدارية.</p>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="text-brand-green flex-shrink-0">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        </div>
-                        <p class="text-slate-700 text-sm font-bold text-brand-dark">أسعار تنافسية مدروسة وفق جودة الخدمات.</p>
-                    </div>
-                </div>
+            <div class="p-8">
+                <ul class="space-y-4 mb-10 text-slate-700">
+                    <li class="flex items-center gap-3">
+                        <span class="w-2 h-2 bg-brand-gold rounded-full"></span>
+                        سكن فندقي في المنطقة المركزية القريبة من الحرم.
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-2 h-2 bg-brand-gold rounded-full"></span>
+                        إشراف ديني وإداري متكامل طوال فترة الرحلة.
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-2 h-2 bg-brand-gold rounded-full"></span>
+                        تنظيم مواعيد الزيارات والمزارات بدقة إدارية.
+                    </li>
+                </ul>
 
-                <div class="bg-gradient-to-r from-slate-50 to-blue-50 p-6 rounded-3xl border border-slate-100">
-                    <h5 class="font-bold text-brand-dark mb-4 text-center text-sm">تأكيد الحجز والاستفسارات اللوجستية</h5>
-                    <div class="flex flex-col md:flex-row gap-3">
-                        <a href="https://wa.me/201061415674" class="flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-3 hover:from-green-600 hover:to-green-700 transition shadow-lg shadow-green-100">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                            متابعة عبر واتساب
-                        </a>
-                    </div>
-                </div>
+                <a href="https://wa.me/201061415674" class="w-full bg-green-600 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-green-700 transition">
+                    متابعة الحجز عبر واتساب
+                </a>
             </div>
         </div>
     </div>
 
     <!-- Final CTA -->
     <section class="py-20 px-4">
-        <div class="max-w-4xl mx-auto bg-gradient-to-r from-brand-green to-brand-blue rounded-[3.5rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
-            <div class="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -mt-10 -ml-10"></div>
-            <div class="relative z-10">
-                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">جاهزية كاملة لتنظيم <br>رحلتكم القادمة</h2>
-                <p class="text-white/80 text-lg font-light mb-12 max-w-2xl mx-auto leading-relaxed">يرجى التواصل المباشر لمراجعة الأوراق المطلوبة وجدولة مواعيد الانطلاق لضمان الانتهاء من كافة الإجراءات الرسمية.</p>
-                <a href="https://wa.me/201061415674" class="inline-flex items-center gap-4 bg-white text-brand-green px-12 py-5 rounded-2xl text-xl font-bold hover:bg-slate-50 hover:scale-105 transition-transform duration-300 shadow-2xl shadow-black/20">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        <div class="max-w-4xl mx-auto bg-brand-green rounded-[3.5rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
+            <div class="relative z-10 text-white">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">جاهزية كاملة لتنظيم رحلتكم</h2>
+                <p class="text-white/70 text-lg font-light mb-12 max-w-2xl mx-auto leading-relaxed">يرجى التواصل المباشر لمراجعة الأوراق المطلوبة وجدولة مواعيد الانطلاق.</p>
+                <a href="https://wa.me/201061415674" class="inline-flex items-center gap-4 bg-brand-gold text-white px-12 py-5 rounded-2xl text-xl font-bold hover:scale-105 transition-transform shadow-2xl shadow-black/20">
                     تواصل الآن للحجز
                 </a>
             </div>
@@ -388,28 +280,12 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-b from-white to-slate-50 py-12 border-t border-slate-100 text-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 bg-gradient-to-br from-brand-green to-brand-blue rounded flex items-center justify-center text-white font-bold">ع</div>
-                    <span class="text-lg font-bold text-brand-dark tracking-tight">برامج العمرة <span class="text-brand-gold font-light">1446</span></span>
-                </div>
-                <p class="text-slate-400 text-sm font-light">© 2025 تنظيم برامج العمرة - بصحبة الشيخ عادل عزام</p>
-                <div class="flex gap-4">
-                    <a href="https://wa.me/201061415674" class="text-slate-500 hover:text-brand-green transition">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    </a>
-                    <a href="tel:+201061415674" class="text-slate-500 hover:text-brand-green transition">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
+    <footer class="bg-white py-12 border-t border-slate-100 text-center">
+        <p class="text-slate-400 text-[10px] font-light tracking-widest uppercase">© 2025 تنظيم برامج العمرة - الشيخ عادل عزام</p>
     </footer>
 
     <!-- WhatsApp Floating Icon -->
-    <a href="https://wa.me/201061415674" class="fixed bottom-8 right-8 z-40 bg-gradient-to-br from-green-500 to-green-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center shadow-2xl hover:from-green-600 hover:to-green-700 hover:-translate-y-2 transition-all duration-300">
+    <a href="https://wa.me/201061415674" class="fixed bottom-8 right-8 z-40 bg-green-500 text-white w-14 h-14 rounded-2xl flex items-center justify-center shadow-2xl hover:bg-green-600 hover:-translate-y-2 transition-all">
         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
@@ -433,24 +309,8 @@
         window.onclick = function(event) {
             if (event.target == modal) closeModal();
         }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
     </script>
 
 </body>
 </html>
+
