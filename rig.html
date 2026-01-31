@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع عمرة - رفيقك للديار المقدسة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-gold: #c5a059;
+            --dark-gold: #9e7e43;
+            --bg-black: #1a1a1a;
+            --light-cream: #f9f6f0;
+            --text-dark: #2c2c2c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rubik', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-cream);
+            color: var(--text-dark);
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding-bottom: 30px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--bg-black) 0%, #333 100%);
+            color: var(--primary-gold);
+            padding: 30px 15px;
+            text-align: center;
+            border-bottom: 4px solid var(--primary-gold);
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .hijri-date {
+            font-size: 15px;
+            color: #fff;
+            opacity: 0.9;
+        }
+        
+        .date-display {
+            background-color: var(--primary-gold);
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        /* زر احجز عمرتك */
+        .book-now {
+            margin: 20px;
+            background: linear-gradient(45deg, var(--primary-gold), var(--dark-gold));
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .book-now i {
+            margin-left: 10px;
+            font-size: 24px;
+        }
+
+        .book-now:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.5);
+        }
+        
+        .prayer-times {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 15px;
+        }
+        
+        .prayer-card {
+            background-color: #fcfcfc;
+            border: 1px solid #eee;
+            color: var(--text-dark);
+            padding: 12px 5px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .prayer-card.active {
+            background-color: var(--bg-black);
+            color: var(--primary-gold);
+            border-color: var(--primary-gold);
+            transform: translateY(-3px);
+        }
+        
+        .prayer-name {
+            font-size: 13px;
+            margin-bottom: 5px;
+            font-weight: 400;
+        }
+        
+        .prayer-time {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border: 1px solid #f0f0f0;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .feature-card:hover {
+            border-color: var(--primary-gold);
+            background-color: #fffaf0;
+        }
+        
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: var(--primary-gold);
+        }
+        
+        .feature-name {
+            font-size: 15px;
+            font-weight: 600;
+        }
+        
+        /* إشعار الصلاة */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--bg-black);
+            color: var(--primary-gold);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: none;
+            max-width: 280px;
+            border-right: 5px solid var(--primary-gold);
+            animation: slideUp 0.5s forwards;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .loading { text-align: center; padding: 10px; color: white; }
+        .loading-spinner {
+            width: 20px; height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>موقع عمرة</h1>
+            <div class="hijri-date" id="hijriDate">جاري تحميل التاريخ...</div>
+        </header>
+        
+        <div class="date-display" id="dateDisplay">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                جاري تحديد الموقع...
+            </div>
+        </div>
+
+        <a href="https://wa.me/201061415674" class="book-now" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            احجز عمرتك الآن
+        </a>
+        
+        <div class="prayer-times">
+            <div class="prayer-card"><div class="prayer-name">الفجر</div><div class="prayer-time" id="fajr">--:--</div></div>
+            <div class="prayer-card"><div class="prayer-name">الشروق</div><div class="prayer-time" id="sunrise">--:--</div></div>
+            <div class="prayer-card"><div class="prayer-name">الظهر</div><div class="prayer-time" id="dhuhr">--:--</div></div>
+            <div class="prayer-card"><div class="prayer-name">العصر</div><div class="prayer-time" id="asr">--:--</div></div>
+            <div class="prayer-card"><div class="prayer-name">المغرب</div><div class="prayer-time" id="maghrib">--:--</div></div>
+            <div class="prayer-card"><div class="prayer-name">العشاء</div><div class="prayer-time" id="isha">--:--</div></div>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card" onclick="window.location.href='azkar.html?type=morning'">
+                <div class="feature-icon"><i class="fas fa-sun"></i></div>
+                <div class="feature-name">أذكار الصباح</div>
+            </div>
+            <div class="feature-card" onclick="window.location.href='masaa.html?type=evening'">
+                <div class="feature-icon"><i class="fas fa-moon"></i></div>
+                <div class="feature-name">أذكار المساء</div>
+            </div>
+            <div class="feature-card" onclick="window.location.href='https://qiblafinder.withgoogle.com/intl/ar/onboarding'">
+                <div class="feature-icon"><i class="fas fa-kaaba"></i></div>
+                <div class="feature-name">اتجاه القبلة</div>
+            </div>
+            <div class="feature-card" onclick="window.location.href='salah.html?type=prayer'">
+                <div class="feature-icon"><i class="fas fa-pray"></i></div>
+                <div class="feature-name"> أذكار بعد الصلاة</div>
+            </div>
+            <div class="feature-card" onclick="window.location.href='noom.html?type=sleep'">
+                <div class="feature-icon"><i class="fas fa-bed"></i></div>
+                <div class="feature-name">أذكار النوم</div>
+            </div>
+            <div class="feature-card" onclick="window.location.href='up.html?type=wakeup'">
+                <div class="feature-icon"><i class="fas fa-bell"></i></div>
+                <div class="feature-name">الاستيقاظ</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="prayerNotification">
+        <div style="font-weight: bold;" id="notificationTitle">تنبيه</div>
+        <div id="notificationMessage"></div>
+    </div>
+    
+    <script>
+        let userLocation = { latitude: 30.0444, longitude: 31.2357 };
+
+        async function fetchPrayerTimes() {
+            try {
+                if ("geolocation" in navigator) {
+                    navigator.geolocation.getCurrentPosition(pos => {
+                        userLocation.latitude = pos.coords.latitude;
+                        userLocation.longitude = pos.coords.longitude;
+                        loadData();
+                    }, () => loadData());
+                } else { loadData(); }
+            } catch (e) { setDefaultTimes(); }
+        }
+
+        async function loadData() {
+            const url = `https://api.aladhan.com/v1/timings?latitude=${userLocation.latitude}&longitude=${userLocation.longitude}&method=4`;
+            const resp = await fetch(url);
+            const data = await resp.json();
+            
+            if(data.code === 200) {
+                const t = data.data.timings;
+                const d = data.data.date;
+                document.getElementById('fajr').textContent = t.Fajr;
+                document.getElementById('sunrise').textContent = t.Sunrise;
+                document.getElementById('dhuhr').textContent = t.Dhuhr;
+                document.getElementById('asr').textContent = t.Asr;
+                document.getElementById('maghrib').textContent = t.Maghrib;
+                document.getElementById('isha').textContent = t.Isha;
+                
+                document.getElementById('dateDisplay').textContent = `${d.gregorian.day} ${d.gregorian.month.ar} ${d.gregorian.year}`;
+                document.getElementById('hijriDate').textContent = `${d.hijri.day} ${d.hijri.month.ar} ${d.hijri.year} هـ`;
+                
+                highlightPrayer(t);
+            }
+        }
+
+        function highlightPrayer(timings) {
+            const now = new Date();
+            const current = now.getHours() * 60 + now.getMinutes();
+            const cards = document.querySelectorAll('.prayer-card');
+            cards.forEach(c => c.classList.remove('active'));
+
+            const pTimes = [
+                {n:'Fajr', t:convertToMin(timings.Fajr), i:0},
+                {n:'Dhuhr', t:convertToMin(timings.Dhuhr), i:2},
+                {n:'Asr', t:convertToMin(timings.Asr), i:3},
+                {n:'Maghrib', t:convertToMin(timings.Maghrib), i:4},
+                {n:'Isha', t:convertToMin(timings.Isha), i:5}
+            ];
+
+            let activeIdx = 5; 
+            for(let i=0; i<pTimes.length; i++) {
+                if(current >= pTimes[i].t) activeIdx = pTimes[i].i;
+            }
+            cards[activeIdx].classList.add('active');
+        }
+
+        function convertToMin(s) {
+            const [h, m] = s.split(':').map(Number);
+            return h * 60 + m;
+        }
+
+        window.addEventListener('DOMContentLoaded', fetchPrayerTimes);
+    </script>
+</body>
+</html>
