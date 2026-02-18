@@ -64,7 +64,6 @@
             font-weight: 500;
         }
         
-        /* زر احجز عمرتك */
         .book-now {
             margin: 20px;
             background: linear-gradient(45deg, var(--primary-gold), var(--dark-gold));
@@ -162,7 +161,6 @@
             font-weight: 600;
         }
         
-        /* إشعار الصلاة */
         .notification {
             position: fixed;
             bottom: 20px;
@@ -226,6 +224,11 @@
         </div>
         
         <div class="features">
+            <div class="feature-card" onclick="window.location.href='Quran.html'">
+                <div class="feature-icon"><i class="fas fa-book-quran"></i></div>
+                <div class="feature-name">القرآن الكريم</div>
+            </div>
+
             <div class="feature-card" onclick="window.location.href='azkar.html?type=morning'">
                 <div class="feature-icon"><i class="fas fa-sun"></i></div>
                 <div class="feature-name">أذكار الصباح</div>
@@ -274,24 +277,28 @@
         }
 
         async function loadData() {
-            const url = `https://api.aladhan.com/v1/timings?latitude=${userLocation.latitude}&longitude=${userLocation.longitude}&method=4`;
-            const resp = await fetch(url);
-            const data = await resp.json();
-            
-            if(data.code === 200) {
-                const t = data.data.timings;
-                const d = data.data.date;
-                document.getElementById('fajr').textContent = t.Fajr;
-                document.getElementById('sunrise').textContent = t.Sunrise;
-                document.getElementById('dhuhr').textContent = t.Dhuhr;
-                document.getElementById('asr').textContent = t.Asr;
-                document.getElementById('maghrib').textContent = t.Maghrib;
-                document.getElementById('isha').textContent = t.Isha;
+            try {
+                const url = `https://api.aladhan.com/v1/timings?latitude=${userLocation.latitude}&longitude=${userLocation.longitude}&method=4`;
+                const resp = await fetch(url);
+                const data = await resp.json();
                 
-                document.getElementById('dateDisplay').textContent = `${d.gregorian.day} ${d.gregorian.month.ar} ${d.gregorian.year}`;
-                document.getElementById('hijriDate').textContent = `${d.hijri.day} ${d.hijri.month.ar} ${d.hijri.year} هـ`;
-                
-                highlightPrayer(t);
+                if(data.code === 200) {
+                    const t = data.data.timings;
+                    const d = data.data.date;
+                    document.getElementById('fajr').textContent = t.Fajr;
+                    document.getElementById('sunrise').textContent = t.Sunrise;
+                    document.getElementById('dhuhr').textContent = t.Dhuhr;
+                    document.getElementById('asr').textContent = t.Asr;
+                    document.getElementById('maghrib').textContent = t.Maghrib;
+                    document.getElementById('isha').textContent = t.Isha;
+                    
+                    document.getElementById('dateDisplay').textContent = `${d.gregorian.day} ${d.gregorian.month.ar} ${d.gregorian.year}`;
+                    document.getElementById('hijriDate').textContent = `${d.hijri.day} ${d.hijri.month.ar} ${d.hijri.year} هـ`;
+                    
+                    highlightPrayer(t);
+                }
+            } catch (err) {
+                console.error("Error loading data", err);
             }
         }
 
