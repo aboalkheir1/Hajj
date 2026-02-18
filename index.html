@@ -54,9 +54,90 @@
         @media (max-width: 768px) {
             .hero-clip { clip-path: none; }
         }
+
+        /* زينة الفانوس الجديدة 🏮 */
+        .ramadan-lanterns {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            pointer-events: none;
+            z-index: 60;
+            display: flex;
+            justify-content: space-around;
+            overflow: hidden;
+        }
+        .lantern-item {
+            display: flex;
+            flex-direction: column;
+            items-center;
+            font-size: 2.5rem;
+            filter: drop-shadow(0 5px 15px rgba(163, 126, 44, 0.4));
+        }
+        .lantern-string {
+            width: 1px;
+            background: linear-gradient(to bottom, rgba(163, 126, 44, 0.1), rgba(163, 126, 44, 0.6));
+            margin: 0 auto;
+        }
+        
+        /* Popup Style */
+        #ramadanPopup {
+            transition: opacity 0.5s ease-in-out;
+        }
+        .popup-card {
+            background: #ffffff;
+            border-top: 6px solid #a37e2c;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
+
+    <!-- زينة رمضان الجديدة 🏮 -->
+    <div class="ramadan-lanterns">
+        <div class="lantern-item">
+            <div class="lantern-string h-12"></div>
+            <span>🏮</span>
+        </div>
+        <div class="hidden md:flex lantern-item">
+            <div class="lantern-string h-8"></div>
+            <span>🏮</span>
+        </div>
+        <div class="lantern-item">
+            <div class="lantern-string h-16"></div>
+            <span>🏮</span>
+        </div>
+        <div class="hidden md:flex lantern-item">
+            <div class="lantern-string h-10"></div>
+            <span>🏮</span>
+        </div>
+        <div class="lantern-item">
+            <div class="lantern-string h-12"></div>
+            <span>🏮</span>
+        </div>
+    </div>
+
+    <!-- رسالة التهنئة المنبثقة -->
+    <div id="ramadanPopup" class="fixed inset-0 z-[200] hidden items-center justify-center p-4">
+        <div class="absolute inset-0 bg-brand-dark/60 backdrop-blur-sm"></div>
+        <div class="popup-card w-full max-w-md rounded-[2.5rem] p-10 text-center relative z-10">
+            <div class="w-20 h-20 bg-brand-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span class="text-4xl">🏮</span>
+            </div>
+            <h2 class="text-3xl font-bold text-brand-dark mb-4">رمضان كريم</h2>
+            <p class="text-slate-600 text-lg mb-8 leading-relaxed">كل عام وأنتم بخير بمناسبة شهر رمضان المبارك</p>
+            
+            <button onclick="acceptPopup()" class="w-full bg-brand-green text-white py-4 rounded-2xl font-bold text-lg hover:bg-brand-dark transition shadow-lg shadow-brand-green/20 mb-4">
+                موافق
+            </button>
+            
+            <label class="flex items-center justify-center gap-2 text-slate-400 text-sm cursor-pointer">
+                <input type="checkbox" id="dontShowAgain" class="rounded border-slate-300 text-brand-gold focus:ring-brand-gold">
+                <span>عدم إظهار هذه الرسالة مرة أخرى</span>
+            </label>
+        </div>
+    </div>
 
     <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,47 +187,24 @@
                 <p class="text-slate-500 font-light">تم توزيع الرحلات لتشمل أهم المواسم لعام 1446هـ</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <div class="program-card bg-slate-50 rounded-[2rem] overflow-hidden border border-slate-100 flex flex-col group">
-                    <div class="bg-white p-2 flex items-center justify-center overflow-hidden h-72">
-                        <img src="https://i.postimg.cc/x8SRVGLh/1767711465306_2.jpg" alt="عمرة نصف العام" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col text-right">
-                        <h3 class="text-xl font-bold text-brand-dark mb-4">عمرة نصف العام الدراسي</h3>
-                        <p class="text-slate-500 text-sm font-light mb-8 leading-relaxed">برنامج منظم يشمل السكن القريب والخدمات الإدارية الكاملة طوال فترة الرحلة.</p>
-                        <button onclick="openDetails('عمرة نصف العام')" class="mt-auto w-full bg-brand-green text-white py-4 rounded-2xl font-bold hover:bg-brand-dark transition shadow-lg shadow-brand-green/10">التفاصيل والحجز</button>
-                    </div>
-                </div>
-
-                <div class="program-card bg-slate-50 rounded-[2rem] overflow-hidden border border-slate-100 flex flex-col group">
-                    <div class="bg-white p-2 flex items-center justify-center overflow-hidden h-72">
-                        <img src="https://i.postimg.cc/4yb1fK5b/1767711491922_2.jpg" alt="عمرة شعبان" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col text-right">
-                        <h3 class="text-xl font-bold text-brand-dark mb-4">عمرة شهر شعبان</h3>
-                        <p class="text-slate-500 text-sm font-light mb-8 leading-relaxed">رحلة تجمع بين السكينة والاستعداد الروحي التام في رحاب مكة والمدينة المنورة.</p>
-                        <button onclick="openDetails('عمرة شهر شعبان')" class="mt-auto w-full bg-brand-green text-white py-4 rounded-2xl font-bold hover:bg-brand-dark transition shadow-lg shadow-brand-green/10">التفاصيل والحجز</button>
-                    </div>
-                </div>
-
-                <div class="program-card bg-slate-50 rounded-[2rem] overflow-hidden border border-slate-100 flex flex-col group">
-                    <div class="bg-white p-2 flex items-center justify-center overflow-hidden h-72">
+            <div class="flex justify-center">
+                <div class="program-card bg-slate-50 rounded-[2rem] overflow-hidden border border-slate-100 flex flex-col group max-w-md w-full shadow-lg">
+                    <div class="bg-white p-2 flex items-center justify-center overflow-hidden h-80 relative">
+                        <div class="absolute top-4 right-4 bg-brand-gold text-white px-4 py-1 rounded-full text-xs font-bold z-10 shadow-sm">موسم رمضان</div>
                         <img src="https://i.postimg.cc/RhQTS3Rq/1767711483095_2.jpg" alt="عمرة رمضان" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-8 flex-1 flex flex-col text-right">
-                        <h3 class="text-xl font-bold text-brand-dark mb-4">عمرة شهر رمضان المبارك</h3>
-                        <p class="text-slate-500 text-sm font-light mb-8 leading-relaxed">أداء المناسك في أفضل الشهور ببرامج متنوعة تشمل كافة الخدمات الإدارية.</p>
-                        <button onclick="openDetails('عمرة شهر رمضان')" class="mt-auto w-full bg-brand-green text-white py-4 rounded-2xl font-bold hover:bg-brand-dark transition shadow-lg shadow-brand-green/10">التفاصيل والحجز</button>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-4">عمرة شهر رمضان المبارك</h3>
+                        <p class="text-slate-500 text-sm font-light mb-8 leading-relaxed">أداء المناسك في أفضل الشهور ببرامج متنوعة تشمل كافة الخدمات الإدارية والدينية بإشراف فضيلة الشيخ عادل عزام.</p>
+                        <button onclick="openDetails('عمرة شهر رمضان')" class="mt-auto w-full bg-brand-green text-white py-5 rounded-2xl font-bold hover:bg-brand-dark transition shadow-lg shadow-brand-green/10">التفاصيل والحجز</button>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section id="features" class="py-24 bg-brand-dark text-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="features" class="py-24 bg-brand-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                 <div class="text-right">
                     <h2 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">المعايير اللوجستية <br><span class="text-brand-gold font-light text-2xl">ضبط إداري وتنفيذ متقن</span></h2>
@@ -173,7 +231,7 @@
                 </div>
                 <div class="flex justify-center">
                     <div class="w-full max-w-sm bg-white/5 p-10 rounded-[3rem] border border-white/10 text-center backdrop-blur-sm">
-                        <div class="w-20 h-20 bg-brand-gold/20 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-gold">
+                        <div class="w-20 h-20 bg-brand-gold/20 rounded-full flex items-center justify-center text-brand-gold mx-auto mb-6">
                             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         </div>
                         <p class="text-4xl font-bold text-brand-gold mb-2">24/7</p>
@@ -225,7 +283,7 @@
     <div id="detailsModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
         <div onclick="closeModal()" class="absolute inset-0 modal-overlay transition-opacity"></div>
         <div class="bg-white w-full max-w-xl rounded-[2.5rem] shadow-2xl relative z-10 overflow-hidden text-right">
-            <div class="p-8 border-b border-slate-100 flex justify-between items-center">
+            <div class="p-8 border-b border-slate-100 flex justify-between items-center bg-brand-surface">
                 <h3 id="modalTitle" class="text-xl font-bold text-brand-dark">تفاصيل البرنامج</h3>
                 <button onclick="closeModal()" class="p-2 hover:bg-slate-100 rounded-full transition text-slate-400">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -297,7 +355,7 @@
         <div class="max-w-4xl mx-auto bg-brand-green rounded-[3.5rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
             <div class="relative z-10 text-white">
                 <h2 class="text-3xl md:text-5xl font-bold mb-6">جاهزية كاملة لتنظيم رحلتكم</h2>
-                <p class="text-white/70 text-lg font-light mb-12 max-w-2xl mx-auto leading-relaxed">يرجى التواصل المباشر لمراجعة الأوراق المطلوبة وجدولة مواعيد الانطلاق.</p>
+                <p class="text-white/70 text-lg font-light mb-12 max-w-2xl mx-auto leading-relaxed">يرجى التواصل المباشر لمراجعة الأوراق المطلوبة وجدولة مواعيد الانطلاق لموسم رمضان المبارك.</p>
                 <a href="https://wa.me/201061415674" class="inline-flex items-center gap-4 bg-brand-gold text-white px-12 py-5 rounded-2xl text-xl font-bold hover:scale-105 transition-transform shadow-2xl shadow-black/20">
                     تواصل الآن للحجز
                 </a>
@@ -307,13 +365,38 @@
 
     <footer class="bg-white py-12 border-t border-slate-100 text-center">
         <p class="text-slate-400 text-[10px] font-light tracking-widest uppercase">© 2026 تنظيم برامج العمرة - الشيخ عادل عزام</p>
+        <p class="text-slate-300 text-[8px] mt-2"> كل عام و أنتم بخير</p>
     </footer>
 
-    <a href="https://wa.me/201061415674" class="fixed bottom-8 right-8 z-40 bg-green-500 text-white w-14 h-14 rounded-2xl flex items-center justify-center shadow-2xl hover:bg-green-600 hover:-translate-y-2 transition-all">
-        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <a href="https://wa.me/201061415674" class="fixed bottom-8 right-8 z-[150] bg-green-500 text-white w-14 h-14 rounded-2xl flex items-center justify-center shadow-2xl hover:bg-green-600 hover:-translate-y-2 transition-all">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.143c1.589.943 3.133 1.415 4.75 1.416 5.482.002 9.944-4.461 9.947-9.945.001-2.657-1.034-5.155-2.913-7.034-1.879-1.878-4.377-2.913-7.035-2.913-5.483 0-9.944 4.461-9.947 9.945 0 1.764.475 3.393 1.376 4.834l-.999 3.648 3.771-.989zm11.387-5.477c-.31-.156-1.834-.905-2.112-1.006-.277-.101-.48-.151-.68.151-.201.302-.777 1.006-.954 1.208-.177.201-.355.226-.665.071-.31-.156-1.31-.483-2.496-1.541-.923-.824-1.545-1.841-1.725-2.143-.18-.302-.019-.465.136-.619.14-.139.31-.362.466-.543.156-.181.208-.31.31-.517.103-.207.052-.387-.026-.543-.078-.156-.68-1.636-.932-2.241-.245-.589-.495-.51-.68-.51h-.581c-.201 0-.528.075-.805.377-.277.301-1.057 1.032-1.057 2.515 0 1.483 1.082 2.918 1.233 3.119.151.201 2.13 3.253 5.16 4.562.72.311 1.282.497 1.72.636.723.23 1.381.197 1.901.12.579-.086 1.833-.751 2.09-1.483.257-.732.257-1.359.18-1.483-.077-.124-.282-.201-.592-.356z"/></svg>
     </a>
 
     <script>
+        // Popup Logic
+        window.onload = function() {
+            if (!localStorage.getItem('hideRamadanPopup')) {
+                const popup = document.getElementById('ramadanPopup');
+                popup.classList.remove('hidden');
+                popup.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        function acceptPopup() {
+            const dontShow = document.getElementById('dontShowAgain').checked;
+            if (dontShow) {
+                localStorage.setItem('hideRamadanPopup', 'true');
+            }
+            const popup = document.getElementById('ramadanPopup');
+            popup.style.opacity = '0';
+            setTimeout(() => {
+                popup.classList.add('hidden');
+                popup.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }, 500);
+        }
+
         const modal = document.getElementById('detailsModal');
         const modalTitle = document.getElementById('modalTitle');
         const prayerModal = document.getElementById('prayerModal');
@@ -373,6 +456,7 @@
         window.onclick = function(event) {
             if (event.target == modal) closeModal();
             if (event.target == prayerModal) togglePrayerModal(false);
+            if (event.target == document.getElementById('ramadanPopup')) acceptPopup();
         }
     </script>
 
