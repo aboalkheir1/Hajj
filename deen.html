@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أدعية يوم عرفة المبارك | فضيلة الشيخ عادل عزام</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-emerald: #064e3b;
+            --gold-accent: #d4af37;
+            --soft-cream: #fdfbf7;
+        }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--soft-cream);
+            color: #1a202c;
+            background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
+        }
+        .quran-font {
+            font-family: 'Amiri', serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+        .duaa-card {
+            transition: all 0.3s ease;
+            border-right: 4px solid transparent;
+        }
+        .duaa-card:hover {
+            border-right-color: var(--gold-accent);
+            transform: translateX(-5px);
+        }
+        .copy-btn {
+            transition: all 0.2s;
+        }
+        .copy-btn:active {
+            transform: scale(0.9);
+        }
+        .tab-active {
+            background-color: var(--gold-accent);
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-emerald);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header Section -->
+    <header class="hero-gradient text-white py-12 px-4 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white"></path>
+            </svg>
+        </div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 quran-font leading-relaxed">أدعية يوم عرفة المبارك</h1>
+            <p class="text-xl md:text-2xl text-emerald-100 font-light italic">إعداد فضيلة الشيخ عادل عزام</p>
+            <div class="mt-8 flex justify-center space-x-4 space-x-reverse">
+                <div class="h-1 w-16 bg-yellow-500 rounded-full"></div>
+                <div class="h-1 w-4 bg-yellow-500 rounded-full"></div>
+                <div class="h-1 w-16 bg-yellow-500 rounded-full"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md py-4 px-2 overflow-x-auto whitespace-nowrap">
+        <div class="max-w-5xl mx-auto flex justify-start md:justify-center gap-2">
+            <button onclick="filterGroup('all')" id="btn-all" class="tab-btn px-6 py-2 rounded-full text-sm font-bold border border-emerald-800 text-emerald-800 hover:bg-emerald-50 tab-active">الكل</button>
+            <button onclick="filterGroup('1')" id="btn-1" class="tab-btn px-6 py-2 rounded-full text-sm font-bold border border-emerald-800 text-emerald-800 hover:bg-emerald-50">المجموعة ١</button>
+            <button onclick="filterGroup('2')" id="btn-2" class="tab-btn px-6 py-2 rounded-full text-sm font-bold border border-emerald-800 text-emerald-800 hover:bg-emerald-50">المجموعة ٢</button>
+            <button onclick="filterGroup('3')" id="btn-3" class="tab-btn px-6 py-2 rounded-full text-sm font-bold border border-emerald-800 text-emerald-800 hover:bg-emerald-50">المجموعة ٣</button>
+            <button onclick="filterGroup('4')" id="btn-4" class="tab-btn px-6 py-2 rounded-full text-sm font-bold border border-emerald-800 text-emerald-800 hover:bg-emerald-50">المجموعة ٤</button>
+            <button onclick="filterGroup('5')" id="btn-5" class="tab-btn px-6 py-2 rounded-full text-sm font-bold border border-emerald-800 text-emerald-800 hover:bg-emerald-50">المجموعة ٥</button>
+            <button onclick="filterGroup('6')" id="btn-6" class="tab-btn px-6 py-2 rounded-full text-sm font-bold border border-emerald-800 text-emerald-800 hover:bg-emerald-50">المجموعة ٦</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <div id="duaa-container" class="space-y-8">
+            <!-- Group 1 -->
+            <div class="group-section" data-group="1">
+                <h2 class="text-2xl font-bold text-emerald-900 mb-6 flex items-center">
+                    <span class="bg-emerald-800 text-white w-8 h-8 rounded-full flex items-center justify-center ml-3 text-base">١</span>
+                    أدعية العافية والمغفرة الجامعة
+                </h2>
+                <div class="grid gap-4" id="list-1"></div>
+            </div>
+
+            <!-- Group 2 -->
+            <div class="group-section" data-group="2">
+                <h2 class="text-2xl font-bold text-emerald-900 mb-6 mt-12 flex items-center">
+                    <span class="bg-emerald-800 text-white w-8 h-8 rounded-full flex items-center justify-center ml-3 text-base">٢</span>
+                    أدعية الشفاء والتوحيد واليقين
+                </h2>
+                <div class="grid gap-4" id="list-2"></div>
+            </div>
+
+            <!-- Group 3 -->
+            <div class="group-section" data-group="3">
+                <h2 class="text-2xl font-bold text-emerald-900 mb-6 mt-12 flex items-center">
+                    <span class="bg-emerald-800 text-white w-8 h-8 rounded-full flex items-center justify-center ml-3 text-base">٣</span>
+                    أدعية السكينة وسعة الفضل
+                </h2>
+                <div class="grid gap-4" id="list-3"></div>
+            </div>
+
+             <!-- Group 4 -->
+             <div class="group-section" data-group="4">
+                <h2 class="text-2xl font-bold text-emerald-900 mb-6 mt-12 flex items-center">
+                    <span class="bg-emerald-800 text-white w-8 h-8 rounded-full flex items-center justify-center ml-3 text-base">٤</span>
+                    أدعية الرزق والوالدين والقبول
+                </h2>
+                <div class="grid gap-4" id="list-4"></div>
+            </div>
+
+             <!-- Group 5 -->
+             <div class="group-section" data-group="5">
+                <h2 class="text-2xl font-bold text-emerald-900 mb-6 mt-12 flex items-center">
+                    <span class="bg-emerald-800 text-white w-8 h-8 rounded-full flex items-center justify-center ml-3 text-base">٥</span>
+                    أدعية التحصين والجمال والرضا
+                </h2>
+                <div class="grid gap-4" id="list-5"></div>
+            </div>
+
+             <!-- Group 6 -->
+             <div class="group-section" data-group="6">
+                <h2 class="text-2xl font-bold text-emerald-900 mb-6 mt-12 flex items-center">
+                    <span class="bg-emerald-800 text-white w-8 h-8 rounded-full flex items-center justify-center ml-3 text-base">٦</span>
+                    أدعية التمام والفتح وحسن الأثر
+                </h2>
+                <div class="grid gap-4" id="list-6"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-emerald-900 text-emerald-100 py-12 px-4 mt-20">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="mb-4 font-bold text-lg">جمعها ورتبها فضيلة الشيخ عادل عزام</p>
+            <p class="text-sm opacity-75">يوم عرفة - فرصة العمر للتغيير والقبول</p>
+            <div class="mt-8 text-xs opacity-50">
+                &copy; 2024 جميع الحقوق محفوظة - لا تنسونا من صالح دعائكم
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification for Copy -->
+    <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-full opacity-0 pointer-events-none transition-opacity duration-300 z-50 shadow-2xl">
+        تم نسخ الدعاء بنجاح
+    </div>
+
+    <script>
+        const allDuaa = {
+            "1": [
+                "اللهم إني أسألك العافية في الدنيا والآخرة، اللهم إني أسألك العفو والعافية في ديني ودنياي، وأهلي ومالي، اللهم استر عوراتي وآمن روعاتي، اللهم احفظني من بين يدي، ومن خلفي، وعن يميني، وعن شمالي، ومن فوقي، وأعوذ بعظمتك أن أغتال من تحتي.",
+                "اللهم إني أسألك علماً نافعاً ورزقاً طيباً وعملاً متقبلاً.",
+                "اللهم أنت ربي، لا إله إلا أنت، خلقتني وأنا عبدك، وأنا على عهدك ووعدك ما استطعت، أعوذ بك من شر ما صنعت، أبوء لك بنعمتك عليّ، وأعترف بذنوبي، فاغفر لي ذنوبي إنه لا يغفر الذنوب إلا أنت.",
+                "اللهم إني أسألك من الخير كله عاجله وآجله ما علمت منه وما لم أعلم، وأعوذ بك من الشر كله عاجله وآجله ما علمت منه وما لم أعلم، اللهم إني أسألك من خير ما سألك منه عبدك ونبيك، وأعوذ بك من شر ما عاذ به عبدك ونبيك، اللهم إني أسألك الجنة وما قرب إليها من قول أو عمل، وأعوذ بك من النار وما قرب إليها من قول أو عمل، وأسألك أن تجعل كل قضاء قضيته لي خيراً.",
+                "اللهم إنا نسألك حسن الخاتمة، اللهم ارزقنا توبة نصوحة قبل الموت، اللهم يا مقلب القلوب ثبت قلوبنا على دينك.",
+                "رب اغفر لي خطيئتي وجهلي، وإسرافي في أمري كله، وما أنت أعلم به مني، اللهم اغفر لي خطاياي، وعمدي وجهلي وهزلي، وكل ذلك عندي، اللهم اغفر لي ما قدمت وما أخرت، وما أسررت وما أعلنت، أنت المقدم وأنت المؤخر، وأنت على كل شيء قدير.",
+                "اللهم اجعل لي في قلبي نوراً، وفي لساني نوراً، وفي سمعي نوراً، وفي بصري نوراً، ومن فوقي نوراً، ومن تحتي نوراً، وعن يميني نوراً، وعن شمالي نوراً، ومن بين يدي نوراً، ومن خلفي نوراً، واجعل في نفسي نوراً، وأعظم لي نوراً.",
+                "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْبُخْلِ، وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ، وَغَلَبَةِ الرِّجَالِ."
+            ],
+            "2": [
+                "اللهم اشف مرضانا ومرضى المسلمين شفاءً لا يغادر سقماً، اللهم يامن تعيد المريض لصحته، وتستجيب دعاء البائس، اشف كل مريض.",
+                "لا إله إلا الله الحليم الكريم، لا إله إلا الله العلي العظيم، لا إله إلا الله رب السماوات السبع ورب العرش العظيم، لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير.",
+                "اللهم إني أستغفرك من جميع الذنوب والخطايا، ما علمت منها وما لم أعلم، اللهم اجمعنا في جناتك جنات النعيم، ولا تفرقنا وأهلنا وأحبائنا بعد الممات يا رب العالمين.",
+                "رب امنحني من سعة القلب، وإشراق الروح، وقوة النفس، ما على ما تحبه من عبادك؛ من مواساة الضعيف والمكسور يعينني والمحروم والملهوف والحزين، واجعل ذلك سلوة حياتي، وسرور نفسي، وشغل وقتي، وقرة عيني.",
+                "يا فارج الهم، ويا كاشف الغم، فرج همي ويسر أمري، وارحم ضعفي، وقلة حيلتي، وارزقني من حيث لا أحتسب يارب العالمين، يا ودود يا كريم، يا جبار السماوات والأرض، يا هادي القلوب اهدي قلبي، يا مغيث أغثني، يا مغيث أغثني، يا مغيث أغثني. اللهم لا تحرمني سعة رحمتك، وشمول عافيتك، وجزيل عطائك، ولا تمنع عني مواهبك لسوء ما عندي، ولا تجازني بقبيح عملي، ولا تصرف وجهك الكريم عني، برحمتك يا أرحم الراحمين.",
+                "اللهم اني اسألك الاحد الصمد ان تغفر ذنوبي انك الغفور الرحيم.",
+                "اللهم اني ظلمت نفسي ظلما كثيرا ولا يغفر الذنوب الا انت فاغفر لي مغفرة من عندك وارحمني انك انت الغفور الرحيم.",
+                "اللهم ارني عجائب قدرتك في تحقيق ما أتمنى."
+            ],
+            "3": [
+                "اللهم رحمتك أوسع من ذنوبي ومغفرتك أرجى عندي من عملي.",
+                "اللهم إنا نظن بك: غفراناً، وعفواً وتوفيقاً، ونصراً، وثباتاً، وتيسيراً، وسعادةً، ورزقاً، وشفاءً، وحسن خاتمة، وتوبةً نصوحاً.. وعتقاً من النار.. فهب لنا مزيداً من فضلك يا واسع الفضل والعطاء.",
+                "اللهم أبعد عنا أذى الدنيا وحيرة النفس وحزن الليل وبكاء القلب وموت الضمير وسوء الخاتمة.",
+                "حسبي الله الغني المغني، الكريم الفتاح السريع جل جلاله العظيم.",
+                "يأتي بها الله ان الله لطيف خبير.",
+                "اللهم ارزقنا إجابة الدعاء وصلاح الحال والأهل والمال والأبناء وحسن الآداء بركة العطاء، اللهم اكتب لنا محو الذنوب وستر العيوب ولين القلوب برحمتك يا أرحم الراحمين.",
+                "اللهم أنزل السكينة في قلوبنا والمحبة في نفوسنا والسعادة في بيوتنا واجعل ذكرك يا الله لا يفارق شفاهنا وأحسن خاتمتنا وأنت راضٍ عنا.",
+                "اللهم ذا الحبل الشديد والأمر الرشيد أسألك الأمن يوم الوعيد والجنة يوم الخلود مع المقربين الشهود الركع السجود.",
+                "اللهم لين قلوبنا بالقرآن، واشرح صدورنا بالقرآن ونور قبورنا بالقرآن.",
+                "اللهم رب الضالة هادي الضالة تهدي من الضلاله تهدني إلى الحق واليقين."
+            ],
+            "4": [
+                "يارب سخر لهم الارض ومن عليها والسماء ومن فيها.",
+                "ارحم يالله من بقت حياتهم تنبض في ذاكرتنا وخلت أماكنهم بيننا، واختفت اصواتهم عن مسامعنا، وأجعل لقاءنا الجنة.",
+                "اللهم ارني سر الصلاة على النبي في شفائي وشفاء والدي وابنائي واخواني واخواتي واقاربي وصديقاتي.",
+                "اللهم صل على محمد طب القلوب ودوائها وعافية الابدان وشفائها ونور الابصار وضبائها.",
+                "الله ربي لا اشرك به شيئا.",
+                "ربنا أتمم لنا نورنا وأغفر لنا إنك على كل شئ قدير.",
+                "اللهم إجعلنا مقبولين بكرمك مكفولين بذكرك مشمولين بعفوك فائزين برضاك، عتقائك من النار.",
+                "اللهم صب علينا الرزق صبا صبا ولا تجعل عيشتنا كدا ولا نكدا.",
+                "رب اغفر لي وهب لي ملكا لا ينبغي لأحد من بعدي إنك أنت الوهاب.",
+                "اللهم أصلح لي شأني كله دقه وجله وتولني فيمن توليت وبارك لي فيما اعطيت."
+            ],
+            "5": [
+                "اللهم لا تجعلني شقيا ولا محروما.",
+                "اللهم اجعلنا ممن توليتهم برحمتك وممن رضيت عنهم وأكرمتهم بكرمك يارحيم ياكريم.",
+                "اللهم اجعل أوسع رزقك علي عند كبر سني، وانقطاع عمري.",
+                "تحصنت بالله الذي لا أله إلا هو، وتوكلت على الحي الذي لا يموت، واستدفعت الشر بلا حول ولا قوة إلا بالله.",
+                "اللهم جملني بـ قلب رحيم وعقل حكيم ونفس صبورة. يارب اجعل بسمتي عادة وحديثي عباده. وحياتي سعادة و خاتمتي شهادة.",
+                "يا حي ياقيوم نسألك يا الله رحمتك وحدك.. متوكلين عليك.. متبرئين من حولنا وقوتنا ملتجئين إلى حولك وقوتك.",
+                "اللهم يا ولي نعمتي، وملاذي عند كربتي، أجعل مااخافه وأحذره بردا وسلاما علي كما جعلت النار بردا وسلاما على إبراهيم.",
+                "اللهم إني أسألك عيشاً قاراً ورزقاً داراً وابناً باراً وعملاً صالحاً متقبلاً."
+            ],
+            "6": [
+                "اللهم إني أسألك تمام النعمة وكمال الفضل والمنة.",
+                "اللهم أرني عجائب قدرتك في تحقيق ما أتمنى.",
+                "اللهم اجعلنا من الاشخاص الخيّرين لا نترك في الناس إلا اثراً طيباً ولا ينالنا إلا دعاء جميل.",
+                "اللهم افتح بيني وبين رزقي ونصيبي وسعادتي وتوفيقي فتحاً مبيناً وأنت خير الفاتحين.",
+                "اللهم وإن تُهنا في ممرّات الطريق.. حدّد لنا الوجهة المناسبة، وتولّنا بحسن تدبيرك وسعة فضلك، وسخّر لنا يارب الخير، كل خير.",
+                "اللهم وإن أرهقتنا رحلة الأيام فتولّنا بلطفك و رحمتك و أبهج أرواحنا حُباً وحياة."
+            ]
+        };
+
+        function populateDuaa() {
+            for (let groupId in allDuaa) {
+                const list = document.getElementById(`list-${groupId}`);
+                allDuaa[groupId].forEach((text, index) => {
+                    const card = document.createElement('div');
+                    card.className = "duaa-card bg-white p-6 rounded-xl shadow-sm border border-emerald-50 relative group";
+                    card.innerHTML = `
+                        <p class="quran-font text-xl md:text-2xl leading-relaxed text-emerald-950 mb-4">${text}</p>
+                        <div class="flex justify-end">
+                            <button onclick="copyDuaa(this)" class="copy-btn flex items-center gap-2 text-emerald-700 hover:text-emerald-900 font-medium text-sm bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                                </svg>
+                                نسخ الدعاء
+                            </button>
+                        </div>
+                    `;
+                    list.appendChild(card);
+                });
+            }
+        }
+
+        function filterGroup(group) {
+            // Update buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('tab-active'));
+            document.getElementById(`btn-${group}`).classList.add('tab-active');
+
+            // Show/Hide sections
+            const sections = document.querySelectorAll('.group-section');
+            if (group === 'all') {
+                sections.forEach(s => s.classList.remove('hidden'));
+            } else {
+                sections.forEach(s => {
+                    if (s.getAttribute('data-group') === group) {
+                        s.classList.remove('hidden');
+                    } else {
+                        s.classList.add('hidden');
+                    }
+                });
+            }
+        }
+
+        function copyDuaa(button) {
+            const text = button.parentElement.parentElement.querySelector('p').innerText;
+            const tempInput = document.createElement("textarea");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            // Toast animation
+            const toast = document.getElementById('toast');
+            toast.style.opacity = '1';
+            setTimeout(() => {
+                toast.style.opacity = '0';
+            }, 2000);
+        }
+
+        // Initialize
+        window.onload = populateDuaa;
+    </script>
+</body>
+</html>
+
